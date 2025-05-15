@@ -8,3 +8,10 @@ class Pupil(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.fam}"
+
+class Book(models.Model):
+    name = models.CharField(max_length=100)
+    pupil = models.ForeignKey(Pupil, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name
